@@ -71,6 +71,11 @@ namespace Atagoal
                 return "Point: x = " + x + ", y = " + y;
             }
 
+            public override string ToString()
+            {
+                return Describe();
+            }
+
 
             public static Point operator +(Point point1, Point point2)
             {

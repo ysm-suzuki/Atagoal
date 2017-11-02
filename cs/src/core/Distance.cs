@@ -63,6 +63,12 @@ namespace Atagoal
                 return "Distance: x = " + x + ", y = " + y;
             }
 
+            public override string ToString()
+            {
+                return Describe();
+            }
+
+
             public static bool operator >(Distance distance1, Distance distance2)
             {
                 return distance1.GetPower() > distance2.GetPower();

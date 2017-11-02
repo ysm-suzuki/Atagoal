@@ -51,7 +51,12 @@ namespace Atagoal
 
             public string Describe()
             {
-                return "LineSegment: from (" + x + ", " + y + ") to (" + x + ", " + y + ")";
+                return "LineSegment: from (" + from.Describe() + ") to (" + to.Describe() + ")";
+            }
+
+            public override string ToString()
+            {
+                return Describe();
             }
 
 

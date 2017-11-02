@@ -37,19 +37,41 @@ namespace Atagoal
                 return new Vector { x = argX, y = argY };
             }
 
-            public float GetPower()
+            public double GetPower()
             {
                 return x * x + y * y;
             }
 
+            public float GetLength()
+            {
+                return (float)System.Math.Sqrt(GetPower());
+            }
+
             public Vector GetUnit()
             {
-                float length = (float)System.Math.Sqrt(GetPower());
+                float length = GetLength();
                 return new Vector
                 {
                     x = x / length,
                     y = y / length
                 };
+            }
+
+            public Vector Rotate(float radian)
+            {
+                var sin = System.Math.Sin(radian);
+                var cos = System.Math.Cos(radian);
+
+                var unitVector = GetUnit();
+                var rotatedVector = Vector.Create(
+                                (float)(unitVector.x * cos - unitVector.y * sin),
+                                (float)(unitVector.x * sin + unitVector.y * cos))
+                                 * GetLength();
+
+                x = rotatedVector.x;
+                y = rotatedVector.y;
+
+                return this;
             }
 
             public Vector Clone()
@@ -68,6 +90,10 @@ namespace Atagoal
                 return "Vector: x = " + x + ", y = " + y;
             }
 
+            public override string ToString()
+            {
+                return Describe();
+            }
 
             public static Vector operator +(Vector vector1, Vector vector2)
             {
