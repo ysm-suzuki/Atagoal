@@ -43,6 +43,11 @@ namespace Atagoal
                 return new LineSegment { from = from.Clone(), to = to.Clone() };
             }
 
+            public Vector ToVector()
+            {
+                return Vector.Create(from, to);
+            }
+
             public bool Equals(LineSegment segment)
             {
                 return from.Equals(segment.from)

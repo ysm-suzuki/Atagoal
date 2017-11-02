@@ -39,6 +39,11 @@ namespace Atagoal
                 };
             }
 
+            public Vector ToVector()
+            {
+                return Vector.Create(x, y);
+            }
+
             public Point Clone()
             {
                 return new Point { x = this.x, y = this.y };

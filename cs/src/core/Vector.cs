@@ -37,6 +37,18 @@ namespace Atagoal
                 return new Vector { x = argX, y = argY };
             }
 
+            public LineSegment ToLineSegment()
+            {
+                return LineSegment.Create(
+                    Point.Create(0, 0),
+                    Point.Create(x, y));
+            }
+
+            public Point ToPoint()
+            {
+                return Point.Create(x, y);
+            }
+
             public double GetPower()
             {
                 return x * x + y * y;
